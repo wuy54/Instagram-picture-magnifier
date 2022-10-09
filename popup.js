@@ -104,20 +104,21 @@ function displayStryPstPic() {
         });
 }
 
-// // in progress
-// function displayVSCOpic() {
-//
-//     postURLs = document.querySelectorAll('[class="disableSave-mobile css-6dp941"]');
-//
-//     for (let i = 0; i < postURLs.length; ++i) {
-//         picURL = postURLs[i];
-//         chrome.runtime.sendMessage({ cmd: "displayNow", data: { value: picURL.src } },
-//             function (response) {
-//                 console.log(response);
-//             });
-//     }
-//
-// }
+// in progress, kinda works but does not fetch the highest quality pics
+function displayVSCOpic() {
+
+    postURLs = document.querySelectorAll('[style="padding-top: 133.333%;"]');
+
+    for (let i = 0; i < postURLs.length; ++i) {
+        picURL = postURLs[i].querySelector("img");
+
+        chrome.runtime.sendMessage({ cmd: "displayNow", data: { value: picURL.src } },
+            function (response) {
+                console.log(response);
+            });
+    }
+
+}
 
 function displayVidStory() {
     // vid story
